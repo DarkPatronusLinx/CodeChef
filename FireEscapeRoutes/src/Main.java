@@ -1,5 +1,3 @@
-package sk.slinner;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -52,12 +50,12 @@ public class Main {
 
             int totalFireRoutes = fireRoutes.size() + lonelyEmployees;
 
-            int captains = 0;
+            long captains = 0;
             for ( HashSet<Integer> fireRoute : fireRoutes ) {
                 if ( captains == 0 ) {
                     captains = fireRoute.size();
                 } else {
-                    captains = captains * fireRoute.size();
+                    captains =  fireRoute.size() * captains % MODULO ;
                 }
             }
 
